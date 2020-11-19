@@ -1,0 +1,12 @@
+#új rekord felvitele
+INSERT TABLE termekek(1,'lapát',500,'K1')
+
+#X nél olcsóbb termékek törlése
+DELETE FROM termekek
+WHERE termekek.ear < X
+
+#az Y kategóriájú termékek árának csökkentése 10%-kal
+UPDATE termekek
+SET ear = ear * 0.9
+WHERE nev IN ( SELECT kategoria FROM termekek WHERE termekek.kategoria LIKE '%Y%')
+

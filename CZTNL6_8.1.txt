@@ -1,0 +1,28 @@
+#Adja meg az X kategóriájú termékek neve és kódja
+SELECT név,tkod
+FROM  TERMEK
+WHERE TERMEK.kategória LIKE '%X%'
+
+#Adja meg a termékek neve és a gyártó neve együtt
+SELECT név
+FROM GYARTO,TERMEK
+WHERE gyarto.adoszam = termek.gyarto
+
+#Adja meg az X kategóriájú termékek gyártóinak nevei
+SELECT gyarto.nev
+FROM  gyartok,termek
+WHERE gyarto.adoszam = termek.gyarto and TERMEK.kategória LIKE '%X%'
+
+#Adja meg az Y-nál drágább termékek darabszámát
+
+SELECT count(termek.ear)
+FROM termek
+WHERE termek.ear > 500
+
+
+#Adja meg az Y-nál drágább termékek gyártóinak darabszám
+
+SELECT count (termek.gyarto)
+FROM termek
+WHERE termek.ear > 500
+GROUP BY termek.gyarto

@@ -1,0 +1,13 @@
+#új szín mező felvitele a sémába
+
+ALTER TABLE termekek
+ADD szín char(10)
+
+#a termekek tábla megszüntetése
+
+DROP TABLE termekek
+
+#azon rekordok megszüntetése, ahol nincs kitöltve a kategória
+
+DELETE FROM termekek
+WHERE termekek.kategoria LIKE ''
